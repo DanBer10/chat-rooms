@@ -4,23 +4,26 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import styled from "styled-components";
 import SideBar from "./components/SideBar";
+import { Provider } from "react-redux";
+import store from "./app/store";
+import Chat from "./components/Chat";
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <AppBody />
-      <SideBar />
+    <Provider store={store}>
       <Router>
         <>
           <Header />
-          <Switch>
-            <Route path="/" exact>
-              {/* Chat*/}
-            </Route>
-          </Switch>
+          <AppBody>
+            <SideBar />
+            <Switch>
+              <Route path="/" exact>
+                <Chat />
+              </Route>
+            </Switch>
+          </AppBody>
         </>
       </Router>
-    </div>
+    </Provider>
   );
 }
 

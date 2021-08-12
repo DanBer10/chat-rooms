@@ -1,4 +1,6 @@
 import React from "react";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { db } from "../firebase";
 import styled from "styled-components";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
@@ -15,6 +17,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
 
 function SideBar() {
+  const [channels, loading, error] = useCollection(db.collection("rooms"));
   return (
     <SidebarContainer>
       <SideBarHeader>
@@ -27,7 +30,6 @@ function SideBar() {
         </SideBarInfo>
         <CreateIcon />
       </SideBarHeader>
-
       <SideBarOptions Icon={InsertCommentIcon} title="Threads" />
       <SideBarOptions Icon={InboxIcon} title="Mentions & reactions" />
       <SideBarOptions Icon={DraftsIcon} title="Saved items" />
@@ -41,6 +43,13 @@ function SideBar() {
       <SideBarOptions Icon={ExpandMoreIcon} title="Channels" />
       <hr />
       <SideBarOptions Icon={AddIcon} addChannelOption title="Add channel" />
+      {/* // Lägger till namn från firebase databasen. Från addChannel funktionen i
+      SideBar.js */}
+      {channels?.docs.map((doc) => {
+        return (
+          <SideBarOptions key={doc.id} id={doc.id} title={doc.data().name} />
+        );
+      })}
     </SidebarContainer>
   );
 }
