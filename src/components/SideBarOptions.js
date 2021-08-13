@@ -16,6 +16,7 @@ function SideBarOptions({ Icon, title, addChannelOption, id }) {
       });
     }
   };
+
   const selectChannel = () => {
     if (id) {
       dispatch(
