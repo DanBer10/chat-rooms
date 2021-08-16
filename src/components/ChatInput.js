@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import { db } from "../firebase";
 import firebase from "firebase";
 
-function ChatInput({ channelName, channelId }) {
+function ChatInput({ channelName, channelId, chatRef }) {
   const [input, setInput] = useState("");
 
   const sendMessage = (e) => {
@@ -18,8 +18,13 @@ function ChatInput({ channelName, channelId }) {
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: "Danne bernhardt",
-      userImage: "https://picsum.photos/200/300",
+      userImage:
+        "https://pbs.twimg.com/profile_images/1339192504382590976/2WxMn8cm_400x400.jpg",
     });
+    chatRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
+
     setInput("");
   };
 
@@ -29,9 +34,9 @@ function ChatInput({ channelName, channelId }) {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={`Message #room`}
+          placeholder={`Message #${channelName}`}
         />
-        <Button hidden type="submit" onClick={sendMessage}>
+        <Button type="submit" onClick={sendMessage}>
           SEND
         </Button>
       </form>
