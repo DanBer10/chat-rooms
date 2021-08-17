@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 import { auth, provider } from "../firebase";
-import messengerIMG from "./messenger.svg";
+import messengerIMG from "../images/messenger.svg";
 
 function Login() {
   const signIn = (e) => {
@@ -15,7 +15,7 @@ function Login() {
   return (
     <LoginContainer>
       <LoginInnerContainer>
-        <img src={messengerIMG} />
+        <img src={messengerIMG} alt="didnt find" />
         <h1>Sign into the chat</h1>
         <p>Chat.com</p>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
 import styled from "styled-components";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
@@ -15,9 +15,12 @@ import AppsIcon from "@material-ui/icons/Apps";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-function SideBar() {
-  const [channels, loading, error] = useCollection(db.collection("rooms"));
+function SideBar({ hej }) {
+  const [channels] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
+
   return (
     <SidebarContainer>
       <SideBarHeader>
@@ -25,7 +28,7 @@ function SideBar() {
           <h2>HQ</h2>
           <h3>
             <FiberManualRecordIcon />
-            Daniel Bernhardt
+            {user.displayName}
           </h3>
         </SideBarInfo>
         <CreateIcon />
@@ -58,23 +61,22 @@ export default SideBar;
 
 const SidebarContainer = styled.div`
   color: white;
-  background-color: var(--chat-color);
+  background-color: #27303a;
   flex: 0.3;
-  border-top: 1px solid #49274b;
+  border-top: 1px solid gray;
   max-width: 260px;
   margin-top: 60px;
-  height: 100vh;
 
   > hr {
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 1px solid #49274b;
+    border: 1px solid gray;
   }
 `;
 
 const SideBarHeader = styled.div`
   display: flex;
-  border-bottom: 1px solid #49274b;
+  border-bottom: 1px solid gray;
   padding: 13px;
 
   > .MuiSvgIcon-root {
