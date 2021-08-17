@@ -38,8 +38,8 @@ function SideBar({ hej }) {
       <SideBarOptions Icon={DraftsIcon} title="Saved items" />
       <SideBarOptions Icon={BookmarkBorderIcon} title="Channel browser" />
       <SideBarOptions Icon={PeopleAltIcon} title="People & user groups" />
-      <SideBarOptions Icon={AppsIcon} title="Apps" />
-      <SideBarOptions Icon={FileCopyIcon} title="File Browser" />
+      {/* <SideBarOptions Icon={AppsIcon} title="Apps" /> */}
+      {/* <SideBarOptions Icon={FileCopyIcon} title="File Browser" /> */}
       <SideBarOptions Icon={ExpandLessIcon} title="Show less" />
       <SideBarOptions Icon={ExpandMoreIcon} title="Show More" />
       <hr />

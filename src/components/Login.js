@@ -16,8 +16,7 @@ function Login() {
     <LoginContainer>
       <LoginInnerContainer>
         <img src={messengerIMG} alt="didnt find" />
-        <h1>Sign into the chat</h1>
-        <p>Chat.com</p>
+        <h1>Sign in to start chatting</h1>
 
         <Button onClick={signIn}>Sign in with Google</Button>
       </LoginInnerContainer>
