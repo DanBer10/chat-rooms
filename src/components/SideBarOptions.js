@@ -52,7 +52,7 @@ const SidebarOptionContainer = styled.div`
   align-items: center;
   padding-left: 2px;
   cursor: pointer;
-  text- :hover {
+  :hover {
     opacity: 0.9;
     background-color: #1d2329;
   }
