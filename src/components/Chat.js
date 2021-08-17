@@ -83,13 +83,16 @@ export default Chat;
 
 const ChatBottom = styled.div`
   padding-bottom: 20px;
+  margin-top: 50px;
 `;
 
 const ChatContainer = styled.div`
   flex: 0.7;
   flex-grow: 1;
   overflow-y: scroll;
-  margin-top: 100px;
+  margin-top: 45px;
+  /* max-height: 80%;
+  height: 100%; */
 `;
 
 const Header = styled.div`
@@ -97,6 +100,12 @@ const Header = styled.div`
   justify-content: space-between;
   padding: 30px;
   border-bottom: 1px solid lightgray;
+  background-color: #e0e4e8;
+  position: fixed;
+  width: 90%;
+  max-height: 9px;
+  height: 100%;
+  margin-top: 15px;
 `;
 
 const HeaderLeft = styled.div`
@@ -116,6 +125,9 @@ const HeaderLeft = styled.div`
 `;
 
 const HeaderRight = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 150px;
   > p {
     display: flex;
     align-items: center;
@@ -128,4 +140,7 @@ const HeaderRight = styled.div`
   }
 `;
 
-const ChatMessages = styled.div``;
+const ChatMessages = styled.div`
+  margin-bottom: 120px;
+  margin-top: 80px;
+`;

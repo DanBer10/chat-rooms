@@ -4,7 +4,13 @@ import { db } from "../firebase";
 import { useDispatch } from "react-redux";
 import { enterRoom } from "../features/appSlice";
 
-function SideBarOptions({ Icon, title, addChannelOption, id }) {
+function SideBarOptions({
+  Icon,
+  title,
+  addChannelOption,
+  hideChannelOption,
+  id,
+}) {
   const dispatch = useDispatch();
 
   const addChannel = () => {
@@ -26,6 +32,7 @@ function SideBarOptions({ Icon, title, addChannelOption, id }) {
       );
     }
   };
+
   return (
     <SidebarOptionContainer
       onClick={addChannelOption ? addChannel : selectChannel}
