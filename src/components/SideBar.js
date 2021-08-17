@@ -9,15 +9,13 @@ import InsertCommentIcon from "@material-ui/icons/InsertComment";
 import InboxIcon from "@material-ui/icons/Inbox";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
-import AppsIcon from "@material-ui/icons/Apps";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-function SideBar({ hej }) {
+function SideBar() {
   const [channels] = useCollection(db.collection("rooms"));
   const [user] = useAuthState(auth);
 
@@ -38,8 +36,6 @@ function SideBar({ hej }) {
       <SideBarOptions Icon={DraftsIcon} title="Saved items" />
       <SideBarOptions Icon={BookmarkBorderIcon} title="Channel browser" />
       <SideBarOptions Icon={PeopleAltIcon} title="People & user groups" />
-      {/* <SideBarOptions Icon={AppsIcon} title="Apps" /> */}
-      {/* <SideBarOptions Icon={FileCopyIcon} title="File Browser" /> */}
       <SideBarOptions Icon={ExpandLessIcon} title="Show less" />
       <SideBarOptions Icon={ExpandMoreIcon} title="Show More" />
       <hr />
