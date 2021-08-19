@@ -43,7 +43,7 @@ function SideBar() {
       <hr />
       <SideBarOptions Icon={AddIcon} addChannelOption title="Add channel" />
       {/* // Lägger till namn från firebase databasen. Från addChannel funktionen i
-      SideBar.js */}
+      SideBarOptions.js */}
       {channels?.docs.map((doc) => {
         return (
           <SideBarOptions key={doc.id} id={doc.id} title={doc.data().name} />

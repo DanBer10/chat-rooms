@@ -91,8 +91,6 @@ const ChatContainer = styled.div`
   flex-grow: 1;
   overflow-y: scroll;
   margin-top: 45px;
-  /* max-height: 80%;
-  height: 100%; */
 `;
 
 const Header = styled.div`
